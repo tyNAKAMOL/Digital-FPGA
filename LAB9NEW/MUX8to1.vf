@@ -1,0 +1,215 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : MUX8to1.vf
+// /___/   /\     Timestamp : 11/15/2021 13:12:24
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan6 -verilog C:/Users/beaut/Desktop/flie/LAB9NEW/MUX8to1.vf -w C:/Users/beaut/Desktop/flie/LAB9NEW/MUX8to1.sch
+//Design Name: MUX8to1
+//Device: spartan6
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale  100 ps / 10 ps
+
+module M4_1E_HXILINX_MUX8to1 (O, D0, D1, D2, D3, E, S0, S1);
+    
+
+   output O;
+
+   input  D0;
+   input  D1;
+   input  D2;
+   input  D3;
+   input  E;
+   input  S0;
+   input  S1;
+
+   reg O;
+
+   always @ ( D0 or D1 or D2 or D3 or E or S0 or S1)
+   begin
+      if(!E)
+      O <= 1'b0;
+      else 
+      begin
+        case({S1,S0})
+        2'b00 : O <= D0;
+        2'b01 : O <= D1;
+        2'b10 : O <= D2;
+        2'b11 : O <= D3;
+        endcase
+      end
+   end
+    
+endmodule
+`timescale  100 ps / 10 ps
+
+module M2_1_HXILINX_MUX8to1 (O, D0, D1, S0);
+    
+
+   output O;
+
+   input  D0;
+   input  D1;
+   input  S0;
+
+   reg O;
+
+   always @ ( D0 or D1 or S0)
+   begin
+      case(S0)
+      1'b0 : O <= D0;
+      1'b1 : O <= D1;
+      endcase
+   end
+    
+endmodule
+`timescale 1ns / 1ps
+
+module MUX8to1(CLK200Hz, 
+               P1, 
+               P2, 
+               P3, 
+               P4, 
+               S0, 
+               S1, 
+               COM0, 
+               COM1, 
+               COM2, 
+               COM3, 
+               OP);
+
+    input CLK200Hz;
+    input [7:0] P1;
+    input [7:0] P2;
+    input [7:0] P3;
+    input [7:0] P4;
+    input S0;
+    input S1;
+   output COM0;
+   output COM1;
+   output COM2;
+   output COM3;
+   output [3:0] OP;
+   
+   wire XLXN_37;
+   wire XLXN_45;
+   wire XLXN_46;
+   wire XLXN_48;
+   wire XLXN_49;
+   wire XLXN_51;
+   wire XLXN_53;
+   wire XLXN_54;
+   wire XLXN_56;
+   wire COM1_DUMMY;
+   
+   assign COM1 = COM1_DUMMY;
+   (* HU_SET = "XLXI_1_27" *) 
+   M4_1E_HXILINX_MUX8to1  XLXI_1 (.D0(P1[2]), 
+                                 .D1(P2[2]), 
+                                 .D2(P3[2]), 
+                                 .D3(P4[2]), 
+                                 .E(XLXN_37), 
+                                 .S0(S0), 
+                                 .S1(S1), 
+                                 .O(XLXN_48));
+   (* HU_SET = "XLXI_2_34" *) 
+   M4_1E_HXILINX_MUX8to1  XLXI_2 (.D0(P1[1]), 
+                                 .D1(P2[1]), 
+                                 .D2(P3[1]), 
+                                 .D3(P4[1]), 
+                                 .E(XLXN_37), 
+                                 .S0(S0), 
+                                 .S1(S1), 
+                                 .O(XLXN_46));
+   (* HU_SET = "XLXI_3_28" *) 
+   M4_1E_HXILINX_MUX8to1  XLXI_3 (.D0(P1[3]), 
+                                 .D1(P2[3]), 
+                                 .D2(P3[3]), 
+                                 .D3(P4[3]), 
+                                 .E(XLXN_37), 
+                                 .S0(S0), 
+                                 .S1(S1), 
+                                 .O(XLXN_49));
+   (* HU_SET = "XLXI_4_31" *) 
+   M4_1E_HXILINX_MUX8to1  XLXI_4 (.D0(P1[6]), 
+                                 .D1(P2[6]), 
+                                 .D2(P3[6]), 
+                                 .D3(P4[6]), 
+                                 .E(XLXN_37), 
+                                 .S0(S0), 
+                                 .S1(S1), 
+                                 .O(XLXN_54));
+   (* HU_SET = "XLXI_5_29" *) 
+   M4_1E_HXILINX_MUX8to1  XLXI_5 (.D0(P1[4]), 
+                                 .D1(P2[4]), 
+                                 .D2(P3[4]), 
+                                 .D3(P4[4]), 
+                                 .E(XLXN_37), 
+                                 .S0(S0), 
+                                 .S1(S1), 
+                                 .O(XLXN_51));
+   (* HU_SET = "XLXI_6_32" *) 
+   M4_1E_HXILINX_MUX8to1  XLXI_6 (.D0(P1[7]), 
+                                 .D1(P2[7]), 
+                                 .D2(P3[7]), 
+                                 .D3(P4[7]), 
+                                 .E(XLXN_37), 
+                                 .S0(S0), 
+                                 .S1(S1), 
+                                 .O(XLXN_56));
+   (* HU_SET = "XLXI_7_30" *) 
+   M4_1E_HXILINX_MUX8to1  XLXI_7 (.D0(P1[5]), 
+                                 .D1(P2[5]), 
+                                 .D2(P3[5]), 
+                                 .D3(P4[5]), 
+                                 .E(XLXN_37), 
+                                 .S0(S0), 
+                                 .S1(S1), 
+                                 .O(XLXN_53));
+   (* HU_SET = "XLXI_8_33" *) 
+   M4_1E_HXILINX_MUX8to1  XLXI_8 (.D0(P1[0]), 
+                                 .D1(P2[0]), 
+                                 .D2(P3[0]), 
+                                 .D3(P4[0]), 
+                                 .E(XLXN_37), 
+                                 .S0(S0), 
+                                 .S1(S1), 
+                                 .O(XLXN_45));
+   VCC  XLXI_17 (.P(XLXN_37));
+   (* HU_SET = "XLXI_18_35" *) 
+   M2_1_HXILINX_MUX8to1  XLXI_18 (.D0(XLXN_45), 
+                                 .D1(XLXN_51), 
+                                 .S0(CLK200Hz), 
+                                 .O(OP[0]));
+   (* HU_SET = "XLXI_19_36" *) 
+   M2_1_HXILINX_MUX8to1  XLXI_19 (.D0(XLXN_46), 
+                                 .D1(XLXN_53), 
+                                 .S0(CLK200Hz), 
+                                 .O(OP[1]));
+   (* HU_SET = "XLXI_20_37" *) 
+   M2_1_HXILINX_MUX8to1  XLXI_20 (.D0(XLXN_48), 
+                                 .D1(XLXN_54), 
+                                 .S0(CLK200Hz), 
+                                 .O(OP[2]));
+   (* HU_SET = "XLXI_21_38" *) 
+   M2_1_HXILINX_MUX8to1  XLXI_21 (.D0(XLXN_49), 
+                                 .D1(XLXN_56), 
+                                 .S0(CLK200Hz), 
+                                 .O(OP[3]));
+   INV  XLXI_22 (.I(CLK200Hz), 
+                .O(COM1_DUMMY));
+   INV  XLXI_23 (.I(COM1_DUMMY), 
+                .O(COM0));
+   VCC  XLXI_24 (.P(COM2));
+   VCC  XLXI_25 (.P(COM3));
+endmodule

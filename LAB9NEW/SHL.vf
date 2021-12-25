@@ -1,0 +1,61 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : SHL.vf
+// /___/   /\     Timestamp : 11/15/2021 13:12:22
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan6 -verilog C:/Users/beaut/Desktop/flie/LAB9NEW/SHL.vf -w C:/Users/beaut/Desktop/flie/LAB9NEW/SHL.sch
+//Design Name: SHL
+//Device: spartan6
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale  100 ps / 10 ps
+
+module INV8_HXILINX_SHL (O, I);
+    
+
+   output [7:0] O;
+
+   input  [7:0] I;
+
+assign O = ~I;
+endmodule
+`timescale 1ns / 1ps
+
+module SHL(INPUT, 
+           OUTPUT);
+
+    input [7:0] INPUT;
+   output [7:0] OUTPUT;
+   
+   wire [7:0] N;
+   
+   (* HU_SET = "XLXI_1_1" *) 
+   INV8_HXILINX_SHL  XLXI_1 (.I(INPUT[7:0]), 
+                            .O(N[7:0]));
+   INV  XLXI_13 (.I(N[0]), 
+                .O(OUTPUT[1]));
+   INV  XLXI_14 (.I(N[1]), 
+                .O(OUTPUT[2]));
+   INV  XLXI_15 (.I(N[2]), 
+                .O(OUTPUT[3]));
+   INV  XLXI_16 (.I(N[3]), 
+                .O(OUTPUT[4]));
+   INV  XLXI_17 (.I(N[4]), 
+                .O(OUTPUT[5]));
+   INV  XLXI_18 (.I(N[5]), 
+                .O(OUTPUT[6]));
+   INV  XLXI_19 (.I(N[6]), 
+                .O(OUTPUT[7]));
+   GND  XLXI_21 (.G(OUTPUT[0]));
+   GND  XLXI_22 (.G(N[7]));
+endmodule

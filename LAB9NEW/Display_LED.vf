@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : Display_LED.vf
+// /___/   /\     Timestamp : 11/15/2021 13:12:22
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan6 -verilog C:/Users/beaut/Desktop/flie/LAB9NEW/Display_LED.vf -w C:/Users/beaut/Desktop/flie/LAB9NEW/Display_LED.sch
+//Design Name: Display_LED
+//Device: spartan6
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module Display_LED(X, 
+                   Y);
+
+    input [7:0] X;
+   output [7:0] Y;
+   
+   
+   BUF  XLXI_1 (.I(X[0]), 
+               .O(Y[0]));
+   BUF  XLXI_2 (.I(X[1]), 
+               .O(Y[1]));
+   BUF  XLXI_3 (.I(X[2]), 
+               .O(Y[2]));
+   BUF  XLXI_4 (.I(X[3]), 
+               .O(Y[3]));
+   BUF  XLXI_5 (.I(X[4]), 
+               .O(Y[4]));
+   BUF  XLXI_6 (.I(X[5]), 
+               .O(Y[5]));
+   BUF  XLXI_7 (.I(X[6]), 
+               .O(Y[6]));
+   BUF  XLXI_8 (.I(X[7]), 
+               .O(Y[7]));
+endmodule

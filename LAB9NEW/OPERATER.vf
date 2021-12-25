@@ -1,0 +1,219 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : OPERATER.vf
+// /___/   /\     Timestamp : 11/15/2021 13:12:26
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan6 -verilog C:/Users/beaut/Desktop/flie/LAB9NEW/OPERATER.vf -w C:/Users/beaut/Desktop/flie/LAB9NEW/OPERATER.sch
+//Design Name: OPERATER
+//Device: spartan6
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale  100 ps / 10 ps
+
+module ADD8_HXILINX_OPERATER (CO, OFL, S, A, B, CI);
+
+
+   output 	      CO;
+   output 	      OFL;
+   output [7:0]       S;
+
+   input  [7:0]       A;
+   input  [7:0]       B;
+   input              CI;
+
+   assign   {CO, S} = A + B + CI;
+   assign   OFL     = ( A[7] & B[7] & (~S[7])) | ((~A[7]) & (~B[7]) & S[7]);
+
+endmodule
+`timescale  100 ps / 10 ps
+
+module INV8_HXILINX_OPERATER (O, I);
+    
+
+   output [7:0] O;
+
+   input  [7:0] I;
+
+assign O = ~I;
+endmodule
+`timescale  100 ps / 10 ps
+
+module ADSU8_HXILINX_OPERATER (CO, OFL, S, A, ADD, B, CI);
+
+   
+   output             CO;
+   output             OFL;
+   output [7:0]       S;
+
+   input  [7:0]       A;
+   input  	      ADD;
+   input  [7:0]       B;
+   input              CI;
+
+   reg    [8:0]       adsu_tmp;  
+
+   always @ (A, ADD, B, CI) 
+   begin
+      if(ADD)
+         adsu_tmp = A + B + CI;
+      else
+         adsu_tmp = A - (!CI) - B;
+   end
+
+   assign S   =  adsu_tmp[7:0];
+   assign CO  =  ADD ? adsu_tmp[8] : ~adsu_tmp[8];
+   assign OFL =  ADD ? ( (A[7] & B[7] & (~S[7])) | ((~A[7]) & (~B[7]) & S[7]) ) : ( (A[7] & (~B[7]) & (~S[7])) | ((~A[7]) & B[7] & S[7]) );
+
+endmodule
+`timescale 1ns / 1ps
+
+module CATEXOR_MUSER_OPERATER(D, 
+                              S, 
+                              OUP);
+
+    input [7:0] D;
+    input [7:0] S;
+   output [7:0] OUP;
+   
+   
+   XOR2  XLXI_1 (.I0(D[1]), 
+                .I1(S[1]), 
+                .O(OUP[1]));
+   XOR2  XLXI_2 (.I0(D[2]), 
+                .I1(S[2]), 
+                .O(OUP[2]));
+   XOR2  XLXI_3 (.I0(D[3]), 
+                .I1(S[3]), 
+                .O(OUP[3]));
+   XOR2  XLXI_4 (.I0(D[4]), 
+                .I1(S[4]), 
+                .O(OUP[4]));
+   XOR2  XLXI_5 (.I0(D[5]), 
+                .I1(S[5]), 
+                .O(OUP[5]));
+   XOR2  XLXI_6 (.I0(D[6]), 
+                .I1(S[6]), 
+                .O(OUP[6]));
+   XOR2  XLXI_7 (.I0(D[7]), 
+                .I1(S[7]), 
+                .O(OUP[7]));
+   XOR2  XLXI_8 (.I0(D[0]), 
+                .I1(S[0]), 
+                .O(OUP[0]));
+endmodule
+`timescale 1ns / 1ps
+
+module SHL_MUSER_OPERATER(INPUT, 
+                          OUTPUT);
+
+    input [7:0] INPUT;
+   output [7:0] OUTPUT;
+   
+   wire [7:0] N;
+   
+   (* HU_SET = "XLXI_1_57" *) 
+   INV8_HXILINX_OPERATER  XLXI_1 (.I(INPUT[7:0]), 
+                                 .O(N[7:0]));
+   INV  XLXI_13 (.I(N[0]), 
+                .O(OUTPUT[1]));
+   INV  XLXI_14 (.I(N[1]), 
+                .O(OUTPUT[2]));
+   INV  XLXI_15 (.I(N[2]), 
+                .O(OUTPUT[3]));
+   INV  XLXI_16 (.I(N[3]), 
+                .O(OUTPUT[4]));
+   INV  XLXI_17 (.I(N[4]), 
+                .O(OUTPUT[5]));
+   INV  XLXI_18 (.I(N[5]), 
+                .O(OUTPUT[6]));
+   INV  XLXI_19 (.I(N[6]), 
+                .O(OUTPUT[7]));
+   GND  XLXI_21 (.G(OUTPUT[0]));
+   GND  XLXI_22 (.G(N[7]));
+endmodule
+`timescale 1ns / 1ps
+
+module SUB_MUSER_OPERATER(D, 
+                          S, 
+                          OUTPUT);
+
+    input [7:0] D;
+    input [7:0] S;
+   output [7:0] OUTPUT;
+   
+   wire XLXN_5;
+   wire XLXN_6;
+   wire XLXN_7;
+   
+   VCC  XLXI_3 (.P(XLXN_5));
+   (* HU_SET = "XLXI_4_58" *) 
+   ADSU8_HXILINX_OPERATER  XLXI_4 (.A(S[7:0]), 
+                                  .ADD(XLXN_6), 
+                                  .B(D[7:0]), 
+                                  .CI(XLXN_5), 
+                                  .CO(XLXN_7), 
+                                  .OFL(XLXN_7), 
+                                  .S(OUTPUT[7:0]));
+   GND  XLXI_5 (.G(XLXN_6));
+   GND  XLXI_6 (.G(XLXN_7));
+endmodule
+`timescale 1ns / 1ps
+
+module ADD_MUSER_OPERATER(D, 
+                          S, 
+                          OUTPUT);
+
+    input [7:0] D;
+    input [7:0] S;
+   output [7:0] OUTPUT;
+   
+   wire XLXN_4;
+   
+   (* HU_SET = "XLXI_1_59" *) 
+   ADD8_HXILINX_OPERATER  XLXI_1 (.A(S[7:0]), 
+                                 .B(D[7:0]), 
+                                 .CI(XLXN_4), 
+                                 .CO(), 
+                                 .OFL(), 
+                                 .S(OUTPUT[7:0]));
+   GND  XLXI_2 (.G(XLXN_4));
+endmodule
+`timescale 1ns / 1ps
+
+module OPERATER(D, 
+                S, 
+                A, 
+                SH, 
+                SU, 
+                X);
+
+    input [7:0] D;
+    input [7:0] S;
+   output [7:0] A;
+   output [7:0] SH;
+   output [7:0] SU;
+   output [7:0] X;
+   
+   
+   ADD_MUSER_OPERATER  XLXI_1 (.D(D[7:0]), 
+                              .S(S[7:0]), 
+                              .OUTPUT(A[7:0]));
+   SUB_MUSER_OPERATER  XLXI_2 (.D(D[7:0]), 
+                              .S(S[7:0]), 
+                              .OUTPUT(SU[7:0]));
+   SHL_MUSER_OPERATER  XLXI_4 (.INPUT(S[7:0]), 
+                              .OUTPUT(SH[7:0]));
+   CATEXOR_MUSER_OPERATER  XLXI_6 (.D(D[7:0]), 
+                                  .S(S[7:0]), 
+                                  .OUP(X[7:0]));
+endmodule

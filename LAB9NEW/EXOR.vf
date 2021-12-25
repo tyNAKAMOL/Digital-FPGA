@@ -1,0 +1,58 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : EXOR.vf
+// /___/   /\     Timestamp : 11/15/2021 12:56:51
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan6 -verilog C:/Users/beaut/Desktop/flie/LAB9NEW/EXOR.vf -w C:/Users/beaut/Desktop/flie/LAB9NEW/EXOR.sch
+//Design Name: EXOR
+//Device: spartan6
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module EXOR(D, 
+            OUTPUT, 
+            S);
+
+    input [7:0] D;
+    input [7:0] OUTPUT;
+    input [7:0] S;
+   
+   wire [7:0] OUTPUT_DUMMY;
+   
+   assign OUTPUT_DUMMY[7:0] = OUTPUT[7:0];
+   XOR2  XLXI_37 (.I0(S[0]), 
+                 .I1(D[0]), 
+                 .O(OUTPUT_DUMMY[0]));
+   XOR2  XLXI_38 (.I0(S[1]), 
+                 .I1(D[1]), 
+                 .O(OUTPUT_DUMMY[1]));
+   XOR2  XLXI_39 (.I0(S[2]), 
+                 .I1(D[2]), 
+                 .O(OUTPUT_DUMMY[2]));
+   XOR2  XLXI_40 (.I0(S[3]), 
+                 .I1(D[3]), 
+                 .O(OUTPUT_DUMMY[3]));
+   XOR2  XLXI_41 (.I0(S[4]), 
+                 .I1(D[4]), 
+                 .O(OUTPUT_DUMMY[4]));
+   XOR2  XLXI_42 (.I0(S[5]), 
+                 .I1(D[5]), 
+                 .O(OUTPUT_DUMMY[5]));
+   XOR2  XLXI_43 (.I0(S[6]), 
+                 .I1(D[6]), 
+                 .O(OUTPUT_DUMMY[6]));
+   XOR2  XLXI_44 (.I0(S[7]), 
+                 .I1(D[7]), 
+                 .O(OUTPUT_DUMMY[7]));
+endmodule

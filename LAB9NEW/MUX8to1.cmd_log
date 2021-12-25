@@ -1,0 +1,1 @@
+sch2hdl -intstyle ise -family spartan6 -verilog MUX8to1_drc.vf -w C:/Users/beaut/Desktop/flie/LAB9NEW/MUX8to1.sch 

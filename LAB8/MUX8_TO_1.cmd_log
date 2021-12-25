@@ -1,0 +1,2 @@
+sch2sym -intstyle ise -family spartan6 -refsym MUX8_TO_1 C:/Users/beaut/Desktop/flie/LAB8/MUX8_TO_1.sch C:/Users/beaut/Desktop/flie/LAB8/MUX8_TO_1.sym 
+sch2sym -intstyle ise -family spartan6 -refsym MUX8_TO_1 C:/Users/beaut/Desktop/flie/LAB8/MUX8_TO_1.sch C:/Users/beaut/Desktop/flie/LAB8/MUX8_TO_1.sym 

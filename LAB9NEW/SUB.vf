@@ -1,0 +1,75 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : SUB.vf
+// /___/   /\     Timestamp : 11/15/2021 13:12:24
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan6 -verilog C:/Users/beaut/Desktop/flie/LAB9NEW/SUB.vf -w C:/Users/beaut/Desktop/flie/LAB9NEW/SUB.sch
+//Design Name: SUB
+//Device: spartan6
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale  100 ps / 10 ps
+
+module ADSU8_HXILINX_SUB (CO, OFL, S, A, ADD, B, CI);
+
+   
+   output             CO;
+   output             OFL;
+   output [7:0]       S;
+
+   input  [7:0]       A;
+   input  	      ADD;
+   input  [7:0]       B;
+   input              CI;
+
+   reg    [8:0]       adsu_tmp;  
+
+   always @ (A, ADD, B, CI) 
+   begin
+      if(ADD)
+         adsu_tmp = A + B + CI;
+      else
+         adsu_tmp = A - (!CI) - B;
+   end
+
+   assign S   =  adsu_tmp[7:0];
+   assign CO  =  ADD ? adsu_tmp[8] : ~adsu_tmp[8];
+   assign OFL =  ADD ? ( (A[7] & B[7] & (~S[7])) | ((~A[7]) & (~B[7]) & S[7]) ) : ( (A[7] & (~B[7]) & (~S[7])) | ((~A[7]) & B[7] & S[7]) );
+
+endmodule
+`timescale 1ns / 1ps
+
+module SUB(D, 
+           S, 
+           OUTPUT);
+
+    input [7:0] D;
+    input [7:0] S;
+   output [7:0] OUTPUT;
+   
+   wire XLXN_5;
+   wire XLXN_6;
+   wire XLXN_7;
+   
+   VCC  XLXI_3 (.P(XLXN_5));
+   (* HU_SET = "XLXI_4_26" *) 
+   ADSU8_HXILINX_SUB  XLXI_4 (.A(S[7:0]), 
+                             .ADD(XLXN_6), 
+                             .B(D[7:0]), 
+                             .CI(XLXN_5), 
+                             .CO(XLXN_7), 
+                             .OFL(XLXN_7), 
+                             .S(OUTPUT[7:0]));
+   GND  XLXI_5 (.G(XLXN_6));
+   GND  XLXI_6 (.G(XLXN_7));
+endmodule

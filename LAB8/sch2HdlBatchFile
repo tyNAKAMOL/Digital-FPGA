@@ -1,0 +1,4 @@
+sch2hdl,-intstyle,ise,-family,spartan6,-verilog,C:/Users/beaut/Desktop/flie/LAB8/MUX8_TO_1.vf,-w,C:/Users/beaut/Desktop/flie/LAB8/MUX8_TO_1.sch
+sch2hdl,-intstyle,ise,-family,spartan6,-verilog,C:/Users/beaut/Desktop/flie/LAB8/Main.vf,-w,C:/Users/beaut/Desktop/flie/LAB8/Main.sch
+sch2hdl,-intstyle,ise,-family,spartan6,-verilog,C:/Users/beaut/Desktop/flie/LAB8/Buzzer.vf,-w,C:/Users/beaut/Desktop/flie/LAB8/Buzzer.sch
+sch2hdl,-intstyle,ise,-family,spartan6,-verilog,C:/Users/beaut/Desktop/flie/LAB8/Main.vf,-w,C:/Users/beaut/Desktop/flie/LAB8/Main.sch

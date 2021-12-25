@@ -1,0 +1,3 @@
+sch2sym -intstyle ise -family spartan6 -refsym SELECTOR C:/Users/beaut/Desktop/flie/LAB9NEW/SELECTOR.sch C:/Users/beaut/Desktop/flie/LAB9NEW/SELECTOR.sym 
+sch2sym -intstyle ise -family spartan6 -w -refsym SELECTOR C:/Users/beaut/Desktop/flie/LAB9NEW/SELECTOR.sch C:/Users/beaut/Desktop/flie/LAB9NEW/SELECTOR.sym 
+sch2sym -intstyle ise -family spartan6 -w -refsym SELECTOR C:/Users/beaut/Desktop/flie/LAB9NEW/SELECTOR.sch C:/Users/beaut/Desktop/flie/LAB9NEW/SELECTOR.sym 

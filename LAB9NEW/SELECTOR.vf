@@ -1,0 +1,60 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : SELECTOR.vf
+// /___/   /\     Timestamp : 11/15/2021 13:12:22
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan6 -verilog C:/Users/beaut/Desktop/flie/LAB9NEW/SELECTOR.vf -w C:/Users/beaut/Desktop/flie/LAB9NEW/SELECTOR.sch
+//Design Name: SELECTOR
+//Device: spartan6
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module SELECTOR(CLK, 
+                RE, 
+                S0, 
+                S1);
+
+    input CLK;
+    input RE;
+   output S0;
+   output S1;
+   
+   wire XLXN_10;
+   wire XLXN_19;
+   wire XLXN_22;
+   wire XLXN_23;
+   
+   FDP  XLXI_4 (.C(CLK), 
+               .D(XLXN_23), 
+               .PRE(RE), 
+               .Q(XLXN_10));
+   FDC  XLXI_8 (.C(CLK), 
+               .CLR(RE), 
+               .D(XLXN_10), 
+               .Q(XLXN_19));
+   FDC  XLXI_9 (.C(CLK), 
+               .CLR(RE), 
+               .D(XLXN_19), 
+               .Q(XLXN_22));
+   FDC  XLXI_10 (.C(CLK), 
+                .CLR(RE), 
+                .D(XLXN_22), 
+                .Q(XLXN_23));
+   OR2  XLXI_11 (.I0(XLXN_23), 
+                .I1(XLXN_19), 
+                .O(S0));
+   OR2  XLXI_12 (.I0(XLXN_23), 
+                .I1(XLXN_22), 
+                .O(S1));
+endmodule

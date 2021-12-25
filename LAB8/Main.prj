@@ -1,0 +1,7 @@
+verilog work "DIV10.vf"
+verilog work "MUX8_TO_1.vf"
+verilog work "DIV100K.vf"
+verilog work "Buzzer.vf"
+verilog work "BCD_TO_7SEG.vf"
+verilog work "Add.vf"
+verilog work "Main.vf"
